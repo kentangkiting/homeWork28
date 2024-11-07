@@ -8,7 +8,7 @@ const ItemComponent = ({ nama, price }) => {
   return (
     <div>
       <h2>{nama}</h2>
-      <p>Rp. {price}</p>
+      {price > 20000 ? <p>Rp. {price}</p> : <p>USD {price}</p>}
     </div>
   );
 };
@@ -20,8 +20,8 @@ function App() {
     <>
       Hello
       <NewComponent props={"passing value via Props"} />
-      <ItemComponent nama={"bintang"} price={"20.000"} />
-      <ItemComponent nama={"bulan"} price={"30.000"} />
+      <ItemComponent nama={"bintang"} price={20000} />
+      <ItemComponent nama={"bulan"} price={30000} />
     </>
   );
 }
