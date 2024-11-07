@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import NewComponent from "./component/newComponent.jsx";
@@ -13,6 +13,16 @@ const ItemComponent = ({ nama, price }) => {
   );
 };
 
+const ItemComponentHomework28_4 = (props) => {
+  return (
+    <ul>
+      {React.Children.map(props.children, (children) => (
+        <li>{children}</li>
+      ))}
+    </ul>
+  );
+};
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -20,8 +30,10 @@ function App() {
     <>
       Hello
       <NewComponent props={"passing value via Props"} />
-      <ItemComponent nama={"bintang"} price={20000} />
-      <ItemComponent nama={"bulan"} price={30000} />
+      <ItemComponentHomework28_4>
+        <ItemComponent nama={"bintang"} price={20000} />
+        <ItemComponent nama={"bulan"} price={30000} />
+      </ItemComponentHomework28_4>
     </>
   );
 }
